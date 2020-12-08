@@ -1,0 +1,17 @@
+class Solution {
+    public int numPairsDivisibleBy60(int[] t) {
+        int a[]=new int[60];
+        for(int i:t)
+        {
+            a[i%60]++;
+        }
+        int ans=0;
+        for(int i=1;i<30;i++)
+        {
+            ans+=a[i]*a[60-i];
+        }
+        ans+=(a[0]*(a[0]-1))/2;
+        ans+=(a[30]*(a[30]-1))/2;
+        return ans;
+    }
+}
